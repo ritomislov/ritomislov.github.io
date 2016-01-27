@@ -3,7 +3,7 @@ function loadData() {
     //  Summary
         var elem = document.getElementById('summaryLoading');
         elem.parentNode.removeChild(elem);
-        document.getElementById('summary').innerHTML = 'Student programmer with 5+ years of experience in Java, C and Android programming with keen interest in research-oriented work. <br><br>Currently working with Snapwiz Inc. on <a href="http://gliderapp.com/">Glider App</a>.';
+        document.getElementById('summary').innerHTML = 'Student programmer with 5+ years of experience in Java, C and Android programming with keen interest in research-oriented work. <br><br>Currently working with Snapwiz Inc. on <a target="_blank" href="http://gliderapp.com/">Glider App</a>.';
     
     //  MyOpenSourceContributions  
         var elem = document.getElementById('myOpenSourceContributionsLoading');
@@ -14,7 +14,7 @@ function loadData() {
         var elem = document.getElementById('gitReposLoading');
         elem.parentNode.removeChild(elem);
         $.each(data, function(key,val){
-            document.getElementById("gitRepos").innerHTML += '<li><strong><em>'+val.name+'</em></strong><br>'+val.description+'</li><br>';
+            document.getElementById("gitRepos").innerHTML += '<li><strong><em><a target="_blank" href="'+val.html_url+'">'+val.name+'</em></strong></a><br>'+val.description+'</li><br>';
         });
     });
     
@@ -23,7 +23,7 @@ function loadData() {
         var elem = document.getElementById('gistsLoading');
         elem.parentNode.removeChild(elem);
         $.each(data, function(key,val){
-            document.getElementById("gists").innerHTML += '<li><strong><em>'+val.files.filename+'</em></strong><br>'+val.description+'</li><br>';
+            document.getElementById("gists").innerHTML += '<li><strong><em><a target = "_blank" href="'+val.html_url+'">'+val.files.filename+'</em></strong></a><br>'+val.description+'</li><br>';
         });
     });
     
@@ -33,8 +33,9 @@ function loadData() {
 
     
     //  Contribute
-        //var elem = document.getElementById('gitReposLoading');
-        //elem.parentNode.removeChild(elem);
+        var elem = document.getElementById('contributeLoading');
+        elem.parentNode.removeChild(elem);
+        document.getElementById("contribute").innerHTML = 'Want to help out? Submit a <a target="_blank" href="https://github.com/cprakashagr?tab=repositories">feature request, open an issue, or submit a patch</a>.';
 
     
     //  Skills
