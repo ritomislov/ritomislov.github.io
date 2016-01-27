@@ -1,0 +1,57 @@
+function loadData() {
+    
+    //  Summary
+        var elem = document.getElementById('summaryLoading');
+        elem.parentNode.removeChild(elem);
+        document.getElementById('summary').innerHTML = 'Student programmer with 5+ years of experience in Java, C and Android programming with keen interest in research-oriented work. <br><br>Currently working with Snapwiz Inc. on <a href="http://gliderapp.com/">Glider App</a>.';
+    
+    //  MyOpenSourceContributions  
+        var elem = document.getElementById('myOpenSourceContributionsLoading');
+        elem.parentNode.removeChild(elem);
+    
+    //  GitRepos
+    $.getJSON('https://api.github.com/users/cprakashagr/repos',function(data){
+        var elem = document.getElementById('gitReposLoading');
+        elem.parentNode.removeChild(elem);
+        $.each(data, function(key,val){
+            document.getElementById("gitRepos").innerHTML += '<li><strong><em>'+val.name+'</em></strong><br>'+val.description+'</li><br>';
+        });
+    });
+    
+    //  Gists
+    $.getJSON('https://api.github.com/users/cprakashagr/gists',function(data){
+        var elem = document.getElementById('gistsLoading');
+        elem.parentNode.removeChild(elem);
+        $.each(data, function(key,val){
+            document.getElementById("gists").innerHTML += '<li><strong><em>'+val.files.filename+'</em></strong><br>'+val.description+'</li><br>';
+        });
+    });
+    
+    //  NonGitProjects
+        var elem = document.getElementById('nonGitProjectsLoading');
+        elem.parentNode.removeChild(elem);
+
+    
+    //  Contribute
+        //var elem = document.getElementById('gitReposLoading');
+        //elem.parentNode.removeChild(elem);
+
+    
+    //  Skills
+        var elem = document.getElementById('skillsLoading');
+        elem.parentNode.removeChild(elem);
+
+    
+    //  Education
+        var elem = document.getElementById('educationLoading');
+        elem.parentNode.removeChild(elem);
+        document.getElementById('education').innerHTML = '<li><strong><em>Bachelor in Technology Hons., Computer Science Engineering</em></strong><br>Lovely Professional University, Phagwara India &nbsp;&nbsp; <h6><span style="text-align:right">GPA: 8.08/10&nbsp; | &nbsp;2011-2015</span></h6></li>';
+
+    
+    //  Hobbies
+        var elem = document.getElementById('hobbiesLoading');
+        elem.parentNode.removeChild(elem);
+        document.getElementById('hobbies').innerHTML = '<li><em>Singing, Surfing Quora, Computer Programming</em></li>';
+
+}
+window.onload = loadData;
